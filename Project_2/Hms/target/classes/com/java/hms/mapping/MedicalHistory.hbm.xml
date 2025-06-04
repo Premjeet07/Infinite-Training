@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.java.hms.model.MedicalHistory" table="MEDICATIONHISTORY">
+
+        <id name="medId" type="string">
+            <column name="MEDID" />
+            <generator class="assigned" />
+        </id>
+
+        <property name="patientId" type="string">
+            <column name="PATIENTID" />
+        </property>
+
+        <property name="medicines" type="string">
+            <column name="MEDICINES" />
+        </property>
+
+        <property name="tests" type="string">
+            <column name="TESTS" />
+        </property>
+
+    </class>
+
+    <!-- Example HQL Queries 
+    <query name="showMedicalHistory">
+        from MedicalHistory
+    </query>
+
+    <query name="searchMedicalHistoryByPatientId">
+        from MedicalHistory where patientId = :patientId
+    </query>-->
+
+</hibernate-mapping>

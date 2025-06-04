@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.java.hms.model.DoctorDetails" table="DOCTOR">
+        
+        <id name="doctorId" type="string">
+            <column name="DOCTORID" />
+            <generator class="assigned" />
+        </id>
+        
+        <property name="doctorName" type="string">
+            <column name="DOCTORNAME" />
+        </property>
+        
+        <property name="specialization">
+            <column name="SPECIALIZATION" />
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.java.hms.model.Specialization</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+        
+        <property name="location" type="string">
+            <column name="LOCATION" />
+        </property>
+        
+        <property name="mobNo" type="string">
+            <column name="MOBILENO" />
+        </property>
+        
+        <property name="status">
+            <column name="ISSTATUS" />
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.java.hms.model.Status</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+    </class>
+
+    <!-- Example HQL Queries 
+    <query name="showDoctorDetails">
+        from DoctorDetails
+    </query>
+
+    <query name="searchDoctorById">
+        from DoctorDetails where doctorId = :doctorId
+    </query>-->
+
+</hibernate-mapping>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+              http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+              version="2.0">
+
+    <!-- Hospital DAO Implementation Bean -->
+    <managed-bean>
+        <managed-bean-name>hospitalDao</managed-bean-name>
+        <managed-bean-class>com.java.hms.dao.HospitalDaoImpl</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <!-- DoctorDetails Model Bean -->
+    <managed-bean>
+        <managed-bean-name>doctorDetails</managed-bean-name>
+        <managed-bean-class>com.java.hms.model.DoctorDetails</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <!-- PatientDetails Model Bean -->
+    <managed-bean>
+        <managed-bean-name>patientDetails</managed-bean-name>
+        <managed-bean-class>com.java.hms.model.PatientDetails</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+
+    <!-- MedicalHistory Model Bean -->
+    <managed-bean>
+        <managed-bean-name>medicalHistory</managed-bean-name>
+        <managed-bean-class>com.java.hms.model.MedicalHistory</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+
+    <!-- Hospital Controller Bean -->
+    <managed-bean>
+        <managed-bean-name>hospitalController</managed-bean-name>
+        <managed-bean-class>com.java.hms.controller.HospitalController</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+        <managed-property>
+            <property-name>hospitalDao</property-name>
+            <property-class>com.java.hms.dao.HospitalDaoImpl</property-class>
+            <value>#{hospitalDao}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>doctorDetails</property-name>
+            <property-class>com.java.hms.model.DoctorDetails</property-class>
+            <value>#{doctorDetails}</value>
+        </managed-property>
+    </managed-bean>
+
+</faces-config>
